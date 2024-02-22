@@ -1,0 +1,19 @@
+@import "reset";
+@import "variables/global";
+@import "themes/light";
+@import "themes/dark";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    font: var(--font-m);
+
+    background: var(--bg-color);
+    color: var(--primary-color);
+
+    height: calc(100% - 40px);
+}

@@ -1,0 +1,29 @@
+.CreateProjectPage {
+    position: relative;
+    left: 120px;
+    width: calc(100% - 120px);
+
+    .content {
+        padding-left: 10px;
+        padding-top: 10px;
+
+        
+    }
+    .input {
+        margin-top: 10px;
+    }
+
+    textarea {
+        height: 300px;
+        width: 500px;
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        resize: none; /* disable resizing */
+    }
+
+    .createProjectButton {
+        margin-top: 10px;
+    }
+}
+
