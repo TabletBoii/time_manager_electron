@@ -1,0 +1,29 @@
+.Sidebar {
+    position: absolute;
+    background: white;
+    padding-top: 10px;
+    height: calc(100% - 40px);
+    transition: .2s;
+    overflow: hidden;
+    width: 120px;
+    background-color: #2f4050;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    color: #9aa6b3 !important;
+    cursor: pointer;
+    transition: .15s;
+    text-decoration: none;
+    padding: 0 15px;
+    height: 40px;
+    font-size: 14px;
+    
+    span {
+        text-decoration: none;
+        margin-right: auto;
+        padding-bottom: 2px;
+        white-space: nowrap;
+    }
+}
