@@ -14,6 +14,8 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import { createProject, getProjectList } from './database/queries/dbQueries'
+import db from './database/db';
 
 class AppUpdater {
   constructor() {
@@ -112,6 +114,8 @@ const createWindow = async () => {
     }
   })
 
+
+
   mainWindow.loadURL(resolveHtmlPath('index.html'));
 
   mainWindow.on('ready-to-show', () => {
@@ -126,6 +130,7 @@ const createWindow = async () => {
   });
 
   mainWindow.on('closed', () => {
+    db.close();
     mainWindow = null;
   });
 
@@ -158,6 +163,12 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
+    ipcMain.handle('get-projects', async () => {
+      return await getProjectList()
+    })
+    ipcMain.handle('create-project', (_, project: any) => {
+      createProject(project);
+    })
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the

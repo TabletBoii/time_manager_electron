@@ -1,13 +1,13 @@
 // Disable no-unused-vars, broken for spread args
 /* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
-import * as dbRead from './database/queries/read/dbRead'
+import * as dbRead from './database/queries/dbQueries'
 
-export type Channels = 'ipc-example';
+export type Channels = 'get-projects';
 
-const getProjectList = () => {
-  return dbRead.getProjectList();
-}
+// const getProjectList = () => {
+//   return dbRead.getProjectList();
+// }
 
 const electronHandler = {
   ipcRenderer: {
@@ -27,9 +27,11 @@ const electronHandler = {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
-  getProjectList: getProjectList
+  getProjects: () => ipcRenderer.invoke('get-projects'),
+  createProject: (project: any) => ipcRenderer.invoke('create-project', project)
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
+
 
 export type ElectronHandler = typeof electronHandler;
