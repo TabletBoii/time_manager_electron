@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 .app {
     font: var(--font-m);
 
@@ -16,4 +21,12 @@
     color: var(--primary-color);
 
     height: calc(100% - 40px);
+}
+
+.contentContainer {
+    position: relative;
+    left: 120px;
+    width: calc(100% - 120px);
+    padding-left: 10px;
+    padding-top: 10px;
 }

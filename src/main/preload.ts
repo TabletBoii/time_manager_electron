@@ -28,7 +28,9 @@ const electronHandler = {
     },
   },
   getProjects: () => ipcRenderer.invoke('get-projects'),
-  createProject: (project: any) => ipcRenderer.invoke('create-project', project)
+  createProject: (project: any) => ipcRenderer.invoke('create-project', project),
+  getWorkByProjectID: (project_id: any) => ipcRenderer.invoke('get_work_by_project', project_id),
+  createWork: (work: any) => ipcRenderer.invoke('create-work', work)
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);

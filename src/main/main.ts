@@ -14,7 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { createProject, getProjectList } from './database/queries/dbQueries'
+import { createProject, getProjectList, getWorkByProjectID, createWork } from './database/queries/dbQueries'
 import db from './database/db';
 
 class AppUpdater {
@@ -77,8 +77,8 @@ const createWindow = async () => {
     height: 700,
     minWidth: 1000,
     minHeight: 700,
-    maxWidth: 1000,
-    maxHeight: 700,
+    maxWidth: 1920,
+    maxHeight: 1080,
     // icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: app.isPackaged
@@ -168,6 +168,14 @@ app
     })
     ipcMain.handle('create-project', (_, project: any) => {
       createProject(project);
+    })
+    ipcMain.handle('get_work_by_project', async (_, project_id: any) => {
+      let data = await getWorkByProjectID(project_id)
+      console.log(data)
+      return data
+    })
+    ipcMain.handle('create-work', async (_, work: any) => {
+      createWork(work);
     })
     createWindow();
     app.on('activate', () => {

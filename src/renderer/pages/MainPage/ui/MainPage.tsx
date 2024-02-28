@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { classNames } from 'renderer/shared/lib/classNames';
 import cls from './MainPage.module.scss'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const { ipcRenderer } = window.require('electron');
 import { IProjects } from 'main/database/queries/dbQueries'
 
@@ -30,7 +30,14 @@ const MainPage = () => {
                     {
                         projects.map((project) => {
                             return (
-                                <div key={ project.id }>{project.project_name} {project.price} </div>
+                                <div key={ project.id }> 
+                                    <Link 
+                                        to='/work' 
+                                        state={{ project: project }}
+                                    >
+                                        {project.project_name} {project.price}
+                                    </Link> 
+                                </div>
                             )
                         })
                     }

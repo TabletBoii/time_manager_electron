@@ -11,8 +11,6 @@ export const Sidebar = ({className}: SidebarProps) => {
         <div className={ classNames(cls.Sidebar, {}, [className]) }>
 
             <Link className={ classNames(cls.nav) } to={"/"}>Главная</Link>
-
-            <Link className={ classNames(cls.nav) } to={"/about"}>О сайте</Link>     
         </div>
     );
 };

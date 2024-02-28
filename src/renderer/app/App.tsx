@@ -14,7 +14,9 @@ export default function App() {
       <div className='app'>
         <Titlebar/>  
         <Sidebar/>
-        <AppRouter/>
+        <div className='contentContainer'>
+          <AppRouter/>
+        </div>
       </div>   
     </Router>
   );

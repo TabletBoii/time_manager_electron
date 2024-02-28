@@ -1,0 +1,1 @@
+export { CreateWorkPageLazy as CreateWorkPage } from "./ui/CreateWorkPage.lazy";
