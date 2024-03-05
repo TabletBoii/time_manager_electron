@@ -4,6 +4,10 @@ import cls from './MainPage.module.scss'
 import { Link, useNavigate } from 'react-router-dom';
 const { ipcRenderer } = window.require('electron');
 import { IProjects } from 'main/database/queries/dbQueries'
+import Button from '@mui/material/Button/Button';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 
 
 const MainPage = () => {
@@ -24,24 +28,33 @@ const MainPage = () => {
     return (
         <div className={ classNames(cls.MainPage, {}, []) }>
             
-            <div className={ cls.projectContent }>
-                <button onClick={() => {navigate('/create_project')}}>Создать проект</button>
-                <div>
+            <div className={ cls.content }>
+                
+                <div className={ cls.title }>
+                    <h1>Проекты</h1> 
+                    <Button startIcon={<AddCircleIcon/>} variant="contained" onClick={() => {navigate('/create_project')}}>
+                        Создать проект
+                    </Button>
+                </div>
+                <div className={ cls.projectContent }>
                     {
                         projects.map((project) => {
                             return (
-                                <div key={ project.id }> 
+                                <div className={ cls.projectElement }>
                                     <Link 
                                         to='/work' 
                                         state={{ project: project }}
+                                        className={ cls.projectButton }
                                     >
-                                        {project.project_name} {project.price}
-                                    </Link> 
+                                        {project.project_name}
+                                    </Link>
+                                    <MoreVertIcon className={ cls.projectOptions }/>
                                 </div>
+                                
                             )
                         })
                     }
-                </div>
+                </div>        
             </div>
             
         </div>

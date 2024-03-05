@@ -1,0 +1,69 @@
+.StartWorkPage {
+    height: 100%;
+    width: 100%;
+    .modalContent {
+        width: 100%;
+        top: 0;
+        left: 0;
+        // position: absolute;
+        display: flex;
+        // align-items: center;
+        flex-direction: unset;
+        justify-content: center;
+    }
+
+    .projectTitleStatic {
+        width: 100%;
+        display: flex;
+        span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+
+    .timerBlock {
+        width: 100%;
+        height: calc(100% - 150px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .timerMain {
+
+            .timer {
+                display: flex;
+                font-size: 60px;
+                .timerElement {
+                    background-color: #000;
+                    color: #fff;
+                    padding: 20px;
+                    border-radius: 7px;
+                    border: 1px solid #000;
+                }
+
+                .timerElementDouble{
+                    margin: auto;
+                }
+        
+            }
+        }
+        .timerButtons {
+            margin-top: 20px;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+
+            .buttonStart {
+                font-size: 25px;
+                height: 100px;
+                width: 300px;
+            }
+
+            button {
+                width: 120px;
+                height: 60px;   
+            }
+        }
+        
+    }
+}

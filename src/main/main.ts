@@ -14,7 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { createProject, getProjectList, getWorkByProjectID, createWork } from './database/queries/dbQueries'
+import { createProject, getProjectList, getWorkByProjectID, createWork, deleteWorkByID } from './database/queries/dbQueries'
 import db from './database/db';
 
 class AppUpdater {
@@ -177,6 +177,10 @@ app
     ipcMain.handle('create-work', async (_, work: any) => {
       createWork(work);
     })
+    ipcMain.handle('delete-work-by-id', async (_, work_id: any) => {
+      deleteWorkByID(work_id);
+    })
+
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the

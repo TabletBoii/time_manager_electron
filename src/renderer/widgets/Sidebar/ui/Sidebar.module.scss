@@ -5,20 +5,26 @@
     height: calc(100% - 40px);
     transition: .2s;
     overflow: hidden;
-    width: 120px;
+    width: 140px;
     background-color: #2f4050;
+    border-right: 1px solid #2f4050;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    color: #9aa6b3 !important;
+    color: #9aa6b3;
     cursor: pointer;
     transition: .15s;
     text-decoration: none;
     padding: 0 15px;
     height: 40px;
     font-size: 14px;
+
+    &:hover {
+        background-color: #c8c8c8;
+        color: #000000;
+    }
     
     span {
         text-decoration: none;

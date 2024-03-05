@@ -1,0 +1,25 @@
+.ToDoPage {
+    .content {
+        
+    }
+
+    .AddIconContent{
+        bottom: 0;
+        right: 0;
+        margin: 0px 20px 20px 0px;
+        position: absolute;
+        display: flex;
+
+        .AddIcon {
+            font-size: 60px;
+            color: #20792f;
+
+
+            &:hover {
+                transition: margin-bottom 0.2s;
+                margin-bottom: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}

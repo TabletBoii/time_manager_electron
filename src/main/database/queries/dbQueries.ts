@@ -1,13 +1,5 @@
 import db from '../db';
-
-let records: any[] = [];
-
-export interface IProjects {
-  id: number;
-  project_name: string;
-  project_desc: string;
-  price: number;
-};
+import { IProjects, IWork } from '../interfaces/interfaces';
 
 export function getProjectList(){
   return new Promise( (resolve, reject) => {
@@ -26,7 +18,7 @@ export function getWorkByProjectID(projectID: number){
            FROM work
            WHERE project_id = ?`;
   return new Promise( (resolve, reject) => {
-    db.all(sql, [projectID], (err: any, rows: any) => {
+    db.all(sql, [projectID], (err: any, rows: IWork[]) => {
       if (err) {
         reject(err);
       } else {
@@ -52,6 +44,17 @@ export function createWork(work: any){
   console.log(work)
   db.run(`INSERT INTO work(project_id, start_date, finish_date, name, desc, effective_time) VALUES(?, ?, ?, ?, ?, ?)`, 
   [work.project, work.begin, work.finish, work.name, work.desc, work.time], function(err: any) {
+    if (err) {
+      console.log(err.message)
+      return err.message;
+    }
+  })
+  console.log("Done")
+}
+
+export function deleteWorkByID(work_id: any){
+  db.run(`DELETE FROM work WHERE id = ?`, 
+  [work_id], function(err: any) {
     if (err) {
       console.log(err.message)
       return err.message;

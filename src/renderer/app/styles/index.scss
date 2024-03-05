@@ -20,13 +20,14 @@ body {
     background: var(--bg-color);
     color: var(--primary-color);
 
-    height: calc(100% - 40px);
+    min-height:100%;
 }
 
 .contentContainer {
     position: relative;
-    left: 120px;
-    width: calc(100% - 120px);
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    height: calc(100vh - 40px) !important;
     padding-left: 10px;
     padding-top: 10px;
 }
