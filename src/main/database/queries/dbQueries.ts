@@ -1,5 +1,5 @@
 import db from '../db';
-import { IProjects, IWork } from '../interfaces/interfaces';
+import { IProjects, ITODO, IWork } from '../interfaces/interfaces';
 
 export function getProjectList(){
   return new Promise( (resolve, reject) => {
@@ -30,6 +30,19 @@ export function getWorkByProjectID(projectID: number){
 
 }
 
+export function getToDoRecords(){
+  return new Promise( (resolve, reject) => {
+    db.all("SELECT * FROM TODO", [], (err: any, rows: ITODO[]) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(rows as Array<ITODO>);
+      }
+    });
+});
+
+}
+
 export function createProject(project: any){
   console.log(project)
   db.run(`INSERT INTO projects(project_name, project_desc, price) VALUES(?, ?, ?)`, [project.name, project.desc, project.price], function(err: any) {
@@ -37,7 +50,7 @@ export function createProject(project: any){
       return err.message;
     }
   })
-  console.log("Done")
+  console.log("Adding project complited")
 }
 
 export function createWork(work: any){
@@ -49,7 +62,7 @@ export function createWork(work: any){
       return err.message;
     }
   })
-  console.log("Done")
+  console.log("Adding work complited")
 }
 
 export function deleteWorkByID(work_id: any){
@@ -60,5 +73,16 @@ export function deleteWorkByID(work_id: any){
       return err.message;
     }
   })
-  console.log("Done")
+  console.log("Deleting work completed")
+}
+
+export function addTODO(record: any){
+  db.run(`INSERT INTO TODO(name, desc, when, status) VALUES(?, ?, ?, ?)`, 
+  [record.name, record.desc, record.when, record.status], function(err: any) {
+    if (err) {
+      console.log(err.message)
+      return err.message;
+    }
+  })
+  console.log("Adding entry completed")
 }

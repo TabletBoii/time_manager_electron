@@ -23,4 +23,15 @@ export function initTables(db: any) {
             PRIMARY KEY("id" AUTOINCREMENT)
         )
     `);
+
+    db.exec(`
+    CREATE TABLE IF NOT EXISTS "TODO" (
+        "id"	INTEGER NOT NULL UNIQUE,
+        "name"	TEXT NOT NULL,
+        "desc"	TEXT,
+        "when"	TEXT NOT NULL,
+        "status"	TEXT NOT NULL,
+        PRIMARY KEY("id" AUTOINCREMENT)
+    )
+    `); 
 }

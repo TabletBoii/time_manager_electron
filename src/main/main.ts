@@ -14,7 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { createProject, getProjectList, getWorkByProjectID, createWork, deleteWorkByID } from './database/queries/dbQueries'
+import { createProject, getProjectList, getWorkByProjectID, createWork, deleteWorkByID, getToDoRecords, addTODO } from './database/queries/dbQueries'
 import db from './database/db';
 
 class AppUpdater {
@@ -179,6 +179,12 @@ app
     })
     ipcMain.handle('delete-work-by-id', async (_, work_id: any) => {
       deleteWorkByID(work_id);
+    })
+    ipcMain.handle('get-todo-records', async () => {
+      return await getToDoRecords()
+    })
+    ipcMain.handle('add-todo-record', async (_, todoRecord: any) => {
+      addTODO(todoRecord)
     })
 
     createWindow();

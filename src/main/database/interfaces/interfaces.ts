@@ -13,3 +13,11 @@ export interface IWork {
     desc: string;
     effective_time: number;
 }
+
+export interface ITODO {
+    id: number;
+    name: string;
+    desc: string;
+    when: string;
+    status: string;
+}

@@ -31,7 +31,9 @@ const electronHandler = {
   createProject: (project: any) => ipcRenderer.invoke('create-project', project),
   getWorkByProjectID: (project_id: any) => ipcRenderer.invoke('get_work_by_project', project_id),
   createWork: (work: any) => ipcRenderer.invoke('create-work', work),
-  deleteWorkByID: (work_id: any) => ipcRenderer.invoke('delete-work-by-id', work_id)
+  deleteWorkByID: (work_id: any) => ipcRenderer.invoke('delete-work-by-id', work_id),
+  getToDoRecords: () => ipcRenderer.invoke('get-todo-records'),
+  addTodoRecord: (todoRecord: any) => ipcRenderer.invoke('add-todo-record', todoRecord)
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
