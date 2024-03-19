@@ -86,3 +86,24 @@ export function addTODO(record: any){
   })
   console.log("Adding entry completed")
 }
+
+export function deleteTODO(record_id: any) {
+  db.run(`DELETE FROM TODO WHERE id = ?`, 
+  [record_id], function(err: any) {
+    if (err) {
+      console.log(err.message)
+      return err.message;
+    }
+  })
+  console.log("Deleting TODO completed")
+}
+
+export function updateTODO(todo: any) {
+  db.run(`UPDATE TODO SET name=?, desc=?, when=?, status=? WHERE id=${todo.id}`, 
+  [todo.name, todo.desc, todo.when, todo.status], function(err: any) {
+    if (err) {
+      console.log(err.message)
+      return err.message;
+    }
+  })
+} 

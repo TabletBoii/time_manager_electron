@@ -4,56 +4,64 @@
         .title {
             font-size: 20px;
         }
+        .table {
+            overflow-y:scroll;
+            overflow-x: hidden;
+            height:600px;
 
-        .workTable {
-            margin-top: 10px;
-            border: 1px solid #eee;
-            table-layout: fixed;
-            width: 100%;
-            margin-bottom: 20px;
-
-            thead {
-                background: #efefef;
-            }
             
-            tbody {
-                tr {
-                    // &:nth-of-type(odd) {
-                    //     background: #fff;
-                    // }
-
-                    &:nth-of-type(2n) {
-                        background: #F7F7F7;
-                    }
+            .workTable {
+                margin-top: 10px;
+                border: 1px solid #eee;
+                table-layout: fixed;
+                width: 100%;
+                margin-bottom: 20px;
+                
+                thead {
+                    background: #efefef;
+                }
+                
+                tbody {
                     
-                    td {
-                        &:last-of-type {
-                            text-align: right;
+                    tr {
+                        // &:nth-of-type(odd) {
+                        //     background: #fff;
+                        // }
+    
+                        &:nth-of-type(2n) {
+                            background: #F7F7F7;
                         }
-                    }
-
-                    Button {
-                        background: #ff0000;
-
-                        .buttonIcon {
-                            color: white;
+                        
+                        td {
+                            &:last-of-type {
+                                text-align: right;
+                            }
+                        }
+    
+                        Button {
+                            background: #ff0000;
+    
+                            .buttonIcon {
+                                color: white;
+                            }
                         }
                     }
                 }
+                th {
+                    font-weight: bold;
+                    padding: 5px;
+                    background: #efefef;
+                    border: 1px solid #dddddd;
+                }
+    
+                td {
+                    padding: 5px 10px;
+                    border: 1px solid #eee;
+                    text-align: left;
+                }
             }
-            th {
-                font-weight: bold;
-                padding: 5px;
-                background: #efefef;
-                border: 1px solid #dddddd;
-            }
-
-            td {
-                padding: 5px 10px;
-                border: 1px solid #eee;
-                text-align: left;
-            }
-        }
+        }   
+        
     }
 
 }
