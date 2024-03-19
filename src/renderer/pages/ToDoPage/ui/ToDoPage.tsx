@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import cls from './ToDoPage.module.scss'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { ITODO } from 'main/database/interfaces/interfaces';
+import { useNavigate } from 'react-router-dom';
 const { ipcRenderer } = window.require('electron');
 
 const ToDoPage = () => {
+
+    const navigate = useNavigate()
 
     const [todos, setTodos] = useState(Array<ITODO>);
 
@@ -16,6 +19,8 @@ const ToDoPage = () => {
         }
     }
 
+
+
     useEffect(() => {
         getTodoRecords()
     }, [])
@@ -26,13 +31,13 @@ const ToDoPage = () => {
                 {
                     todos.map((todo) => {
                         return (
-                            <div>{todo.name} {todo.desc} {todo.when} {todo.status}</div>
+                            <div>{todo.name} {todo.desc} {todo.todo_when} {todo.status}</div>
                         )
                     })
                 }
             </div>
             <div className={ cls.AddIconContent }>
-                <AddCircleIcon className={ cls.AddIcon }/>
+                <AddCircleIcon className={ cls.AddIcon } onClick={ () => navigate('/create_todo') }/>
             </div>
         </div>
     );

@@ -18,6 +18,6 @@ export interface ITODO {
     id: number;
     name: string;
     desc: string;
-    when: string;
+    todo_when: string;
     status: string;
 }

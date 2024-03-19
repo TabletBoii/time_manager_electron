@@ -7,6 +7,7 @@ import { WorkListPage } from "renderer/pages/WorkListPage"
 import { StartWorkpage } from "renderer/pages/StartWorkPage"
 import { ToDoPage } from "renderer/pages/ToDoPage"
 import { NotesPage } from "renderer/pages/NotesPage"
+import { CreateToDoPage } from "renderer/pages/CreateToDoPage"
 
 
 
@@ -18,6 +19,7 @@ export enum AppRoutes {
     WORK_LIST = 'work_list',
     START_WORK = 'start_work',
     TODO = 'todo',
+    CREATE_TODO = 'create_todo',
     NOTES = 'notes'
 }
 
@@ -25,6 +27,7 @@ export enum AppRoutes {
 export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.TODO]: '/todo',
+    [AppRoutes.CREATE_TODO]: '/create_todo',
     [AppRoutes.CREATE_PROJECT]: '/create_project',
     [AppRoutes.WORK]: '/work',
     [AppRoutes.CREATE_WORK]: '/create_work',
@@ -66,5 +69,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.NOTES]: {
         path: RoutePath.notes,
         element: <NotesPage/>
+    },
+    [AppRoutes.CREATE_TODO]: {
+        path: RoutePath.create_todo,
+        element: <CreateToDoPage/>
     },
 }

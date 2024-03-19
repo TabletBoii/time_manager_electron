@@ -77,8 +77,9 @@ export function deleteWorkByID(work_id: any){
 }
 
 export function addTODO(record: any){
-  db.run(`INSERT INTO TODO(name, desc, when, status) VALUES(?, ?, ?, ?)`, 
-  [record.name, record.desc, record.when, record.status], function(err: any) {
+  console.log(record)
+  db.run(`INSERT INTO TODO(name, desc, todo_when, status) VALUES(?, ?, ?, ?)`, 
+  [record.name, record.desc, record.todo_when, record.status], function(err: any) {
     if (err) {
       console.log(err.message)
       return err.message;
