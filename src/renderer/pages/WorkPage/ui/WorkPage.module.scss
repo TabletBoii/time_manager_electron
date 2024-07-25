@@ -1,17 +1,23 @@
 .WorkPage {
     .workContent {
+        display: flex;
+        flex-direction: column;
         .title {
             font-size: 20px;
         }
 
         .menu{
-
+            
+            margin: 0 auto;
+            margin-top: 10px;
 
             div {
                 margin-top: 15px;
 
                 Button {
-                    width: 300px;
+                    height: 80px;
+                    width: 400px;
+                    font-size: 22px;
                 }
             }
         }

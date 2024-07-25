@@ -82,6 +82,10 @@ const WorkTable = ({ props }: any) => {
         return columnWidths;
     }
 
+    const exportToPDF = () => {
+
+    }
+
     const exportToExcel = () => {
     // Generate Excel file
         let fileName = "data"

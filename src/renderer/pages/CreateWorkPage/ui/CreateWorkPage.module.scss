@@ -1,7 +1,41 @@
 .CreateWorkPage {
-    
-    .input {
+
+    .projectName{
+        span {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+    .timeInput{
+        display: flex;
         margin-top: 10px;
+        margin-bottom: 20px;
+        input {
+            margin-right: 10px;
+            width: 70px;
+        }
+    }
+
+    .dateInput{
+        display: block;
+        margin-top: 10px;
+        
+        input {
+            margin-right: 10px;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        &.enabled {
+
+        }
+    }
+
+    .input {
+        margin-bottom: 10px;
     }
 
     textarea {

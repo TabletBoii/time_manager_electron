@@ -6,6 +6,8 @@ import { Sidebar } from '../widgets/Sidebar';
 import { Titlebar } from '../widgets/Titlebar';
 import { AppRouter } from './providers/router';
 import { StoreProvider } from './providers/StoreProvider';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   
@@ -15,9 +17,12 @@ export default function App() {
       <Router>
         <div className='app'>
           <Titlebar/>  
+          
           <Sidebar/>
           <div className='contentContainer'>
+          <ToastContainer className="Toastify__toast-container"/>
             <AppRouter/>
+            
           </div>
         </div>   
       </Router>

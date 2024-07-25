@@ -3,6 +3,10 @@ import cls from './ToDoPage.module.scss'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { ITODO } from 'main/database/interfaces/interfaces';
 import { useNavigate } from 'react-router-dom';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import MenuIcon from '@mui/icons-material/Menu';
+import { ToDoElementMenu } from 'renderer/widgets/ToDoElementMenu';
 const { ipcRenderer } = window.require('electron');
 
 const ToDoPage = () => {
@@ -31,7 +35,23 @@ const ToDoPage = () => {
                 {
                     todos.map((todo) => {
                         return (
-                            <div>{todo.name} {todo.desc} {todo.todo_when} {todo.status}</div>
+                            <div className={cls.toDoElement}>
+                                <div className={cls.toDoElementOptions}>
+                                    <ToDoElementMenu/>
+                                    <MenuIcon className={cls.toDoIcon}/>
+                                    <CheckCircleOutlineIcon className={cls.toDoIcon}/>
+                                    <CheckCircleIcon className={cls.toDoIcon}/>
+                                </div>
+                                <div className={cls.toDoElementText}>
+                                    <p>
+                                        {todo.name}
+                                    </p>
+
+                                    <p className={cls.toDoElementDate}>
+                                        {todo.todo_when}
+                                    </p>
+                                </div>            
+                            </div>
                         )
                     })
                 }

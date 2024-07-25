@@ -1,6 +1,27 @@
 .ToDoPage {
     .content {
-        
+        .toDoElement {
+            display: flex;
+
+            .toDoElementOptions {
+                display: flex;
+                align-items: center;
+                .toDoIcon{
+                    font-size: 28px;
+                }
+            }
+
+            .toDoElementText{
+                font-size: 20px;
+                line-height: 1em;
+                margin-left: 10px;
+
+                .toDoElementDate {
+                    font-size: 10px;
+                    color: gray;
+                }
+            }
+        }
     }
 
     .AddIconContent{
